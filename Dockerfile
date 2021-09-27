@@ -1,7 +1,9 @@
-FROM debian:stretch-slim
+FROM debian:stable-20210902-slim
 
-LABEL Maintainer="Craig Manley https://github.com/cmanley" \
-      Description="cvsweb 3.0.6-8 (CVS repository viewer) using nginx, fcgiwrap, and Debian stretch-slim"
+ENV DEBIAN_BASE_IMG_DATE=20210902
+
+LABEL Maintainer="Craig Manley https://github.com/cmanley (cmanley/cvsweb-docker)"
+LABEL Description="cvsweb via nginx, fcgiwrap, on Debian stable-${DEBIAN_BASE_IMG_DATE}-slim."
 
 RUN apt-get update && apt-get install -y \
 	cvsgraph \
